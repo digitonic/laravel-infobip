@@ -1,0 +1,31 @@
+{
+  "messages": [
+    {
+      "callbackData": "CAMPIGN_UUID",
+      "destinations": [
+        {
+          "messageId": "MESSAGE_UUID",
+          "to": "447572554668"
+        }
+      ],
+      "from": "Digitonic",
+      "notifyContentType": "application/json",
+      "notifyUrl": "PASSONA_WEBHOOK_ENDPOINT",
+      "validityPeriod": 720
+    },
+    {
+      "callbackData": "CAMPIGN_UUID",
+      "destinations": [
+        {
+          "messageId": "MESSAGE_UUID",
+          "to": "447572554668"
+        }
+      ],
+      "from": "Digitonic",
+      "notifyContentType": "application/json",
+      "notifyUrl": "PASSONA_WEBHOOK_ENDPOINT",
+      "text": "",
+      "validityPeriod": 720
+    }
+  ]
+}
