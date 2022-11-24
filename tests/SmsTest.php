@@ -20,13 +20,13 @@ test('required domain config', function () {
 })->throws(Exception::class, 'You must provide a valid Base URL to use Infobip API.');
 
 
-test('required messages in the payload', function () {
+test('required messages in sendMessages payload', function () {
 
     Infobip::sendMessages(collect());
 
 })->throws(Exception::class, 'messages key is required in the payload.');
 
-test('required body key in message the payload', function () {
+test('required body key in message sendMessages payload', function () {
 
     $request = collect(json_decode(file_get_contents(__DIR__.'/files/sms-no-text.json'), true));
 
@@ -34,14 +34,14 @@ test('required body key in message the payload', function () {
 
 })->throws(Exception::class, 'One item in the messages array has key text missing in the payload.');
 
-test('send request if valid payload', function () {
+test('sendMessages request with valid payload', function () {
 
     $domain = config('infobip.domain');
     Http::fake(["${domain}/*" => Http::response(['foo' => 'bar'], 200, ['Headers'])]);
 
     $request = collect(json_decode(file_get_contents(__DIR__.'/files/sms.json'), true));
 
-    $response = Infobip::sendMessages($request);
+    Infobip::sendMessages($request);
 
     Http::assertSentCount(1);
 });

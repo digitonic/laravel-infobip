@@ -35,17 +35,19 @@ class Infobip implements Contracts\InfobipApi
 
     public function sendMessages(Collection $request): Response
     {
-        $this->validateRequest($request);
+        $this->validateSendMessagesRequest($request);
 
         return $this->getClient()->post('/sms/2/text/advanced', $request);
     }
 
     public function numbersLookup(Collection $request): Response
     {
+        $this->validateNumbersLookupRequest($request);
+
         return $this->getClient()->post('/sms/2/text/advanced', $request);
     }
 
-    private function validateRequest(Collection $request)
+    private function validateSendMessagesRequest(Collection $request)
     {
         if(!$request->has('messages') || empty($request->get('messages'))){
             throw new Exception('messages key is required in the payload.');
@@ -61,5 +63,15 @@ class Infobip implements Contracts\InfobipApi
             }
         }
 
+    }
+
+    private function validateNumbersLookupRequest(Collection $request)
+    {
+        $requiredFields = ['to','notifyUrl'];
+        foreach ($requiredFields as $requiredField) {
+            if(!$request->has($requiredField) || empty($request->get($requiredField))) {
+                throw new Exception($requiredField .' key is required in the payload.');
+            }
+        }
     }
 }
