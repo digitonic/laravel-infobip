@@ -1,5 +1,5 @@
 {
-    "name": "digitonic/infobip",
+    "name": "digitonic/laravel-infobip",
     "description": "Accessing infobip API via HTTP facade",
     "type": "laravel-package",
     "autoload": {
