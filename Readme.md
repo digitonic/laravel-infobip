@@ -23,14 +23,14 @@ This package supports 2 endpoint so far with a basic request validation.
 
 `Infobip::sendMessages($request)`
 
-This method accepts a collection with messages to be sent example can be found in [Sms](tests/sms.json) More details can be found [here](https://www.infobip.com/docs/api/channels/sms) on the infobip API page
+This method accepts a collection with messages to be sent example can be found in [Sms](tests/files/sms.json) More details can be found [here](https://www.infobip.com/docs/api/channels/sms) on the infobip API page
 
 
 #### SendMessages
 
 `Infobip::numbersLookup($request)`
 
-This method accepts a collection with messages to be looked up example can be found in [Sms](tests/lookup.json) More details can be found [here](https://www.infobip.com/docs/api/platform-connectivity/number-lookup/number-context-lookup-async) on the infobip API page
+This method accepts a collection with messages to be looked up example can be found in [Sms](tests/files/lookup.json) More details can be found [here](https://www.infobip.com/docs/api/platform-connectivity/number-lookup/number-context-lookup-async) on the infobip API page
 
 
 
