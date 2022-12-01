@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static mixed getClient()
  * @method static Response sendMessages(Collection $request)
  * @method static Response numbersLookup(Collection $request)
+ * @method static Response numbersLookupQuery(Collection $request)
  */
 final class Infobip extends Facade
 {
