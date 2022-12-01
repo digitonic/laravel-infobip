@@ -26,7 +26,7 @@ This package supports 2 endpoint so far with a basic request validation.
 This method accepts a collection with messages to be sent example can be found in [Sms](tests/files/sms.json) More details can be found [here](https://www.infobip.com/docs/api/channels/sms) on the infobip API page
 
 
-#### SendMessages
+#### Numbers Lookup
 
 `Infobip::numbersLookup($request)`
 
