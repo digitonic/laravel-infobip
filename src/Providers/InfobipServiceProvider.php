@@ -9,7 +9,6 @@ use Exception;
 
 final class InfobipServiceProvider extends ServiceProvider
 {
-
     public function boot(): void
     {
         $this->publishes([

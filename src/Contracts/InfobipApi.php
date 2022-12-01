@@ -9,6 +9,6 @@ use Illuminate\Http\Client\Response;
 interface InfobipApi
 {
     public function getClient(): PendingRequest;
-    public function sendMessages(Collection $request) : Response;
-    public function numbersLookup(Collection $request) : Response;
+    public function sendMessages(Collection $request): Response;
+    public function numbersLookup(Collection $request): Response;
 }

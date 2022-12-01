@@ -56,7 +56,7 @@ class Infobip implements Contracts\InfobipApi
 
     private function validateSendMessagesRequest(Collection $request)
     {
-        if(!$request->has('messages') || empty($request->get('messages'))){
+        if (!$request->has('messages') || empty($request->get('messages'))) {
             throw new Exception('messages key is required in the payload.');
         }
         $messages = collect($request->get('messages'));
@@ -65,30 +65,29 @@ class Infobip implements Contracts\InfobipApi
 
         $requiredFields = ['callbackData','destinations','from','notifyContentType','notifyUrl','text','validityPeriod'];
         foreach ($requiredFields as $requiredField) {
-            if(!$message->has($requiredField) || empty($message->get($requiredField))) {
+            if (!$message->has($requiredField) || empty($message->get($requiredField))) {
                 throw new Exception('One item in the messages array has key '. $requiredField .' missing in the payload.');
             }
         }
-
     }
 
     private function validateNumbersLookupRequest(Collection $request, bool $isSync = false)
     {
         $requiredFields = ['to','notifyUrl'];
         $missingFields = [];
-        if($isSync) {
+        if ($isSync) {
             $missingFields = ['notifyUrl'];
             $requiredFields = ['to'];
         }
 
         foreach ($requiredFields as $requiredField) {
-            if(!$request->has($requiredField) || empty($request->get($requiredField))) {
+            if (!$request->has($requiredField) || empty($request->get($requiredField))) {
                 throw new Exception($requiredField .' key is required in the payload.');
             }
         }
 
         foreach ($missingFields as $missingField) {
-            if($request->has($missingField) && !empty($request->get($missingField))) {
+            if ($request->has($missingField) && !empty($request->get($missingField))) {
                 throw new Exception($missingField .' key is NOT allowed in the payload.');
             }
         }
