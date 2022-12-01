@@ -31,3 +31,32 @@ test('send request if valid payload', function () {
     Http::assertSentCount(1);
 });
 
+
+
+test('do not send request if invalid payload numbersLookupQuery', function () {
+
+    $domain = config('infobip.domain');
+    Http::fake(["${domain}/*" => Http::response(['foo' => 'bar'], 200, ['Headers'])]);
+
+    $request = collect(json_decode(file_get_contents(__DIR__.'/files/lookup.json'), true));
+
+    Infobip::numbersLookupQuery($request);
+
+    Http::assertSentCount(1);
+
+})->throws(Exception::class, 'notifyUrl key is NOT allowed in the payload.');
+
+
+
+test('send request if valid payload numbersLookupQuery', function () {
+
+    $domain = config('infobip.domain');
+    Http::fake(["${domain}/*" => Http::response(['foo' => 'bar'], 200, ['Headers'])]);
+
+    $request = collect(json_decode(file_get_contents(__DIR__.'/files/lookup-query.json'), true));
+
+    Infobip::numbersLookupQuery($request);
+
+    Http::assertSentCount(1);
+
+});
