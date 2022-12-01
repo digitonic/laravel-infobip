@@ -51,7 +51,7 @@ class Infobip implements Contracts\InfobipApi
     {
         $this->validateNumbersLookupRequest($request, true);
 
-        return $this->getClient()->post('/number/1/notify', $request);
+        return $this->getClient()->post('/number/1/query', $request);
     }
 
     private function validateSendMessagesRequest(Collection $request)
