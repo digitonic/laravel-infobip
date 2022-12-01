@@ -33,6 +33,12 @@ This method accepts a collection with messages to be sent example can be found i
 This method accepts a collection with messages to be looked up example can be found in [Sms](tests/files/lookup.json) More details can be found [here](https://www.infobip.com/docs/api/platform-connectivity/number-lookup/number-context-lookup-async) on the infobip API page
 
 
+#### Numbers Lookup Query
+
+`Infobip::numbersLookupQuery($request)`
+
+This method accepts a collection with messages to be looked up example can be found in [Sms](tests/files/lookup-query.json) More details can be found [here](https://www.infobip.com/docs/api/platform-connectivity/number-lookup/number-context-lookup) on the infobip API page
+
 
 ### Changelog
 
