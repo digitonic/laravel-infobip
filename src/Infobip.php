@@ -63,7 +63,7 @@ class Infobip implements Contracts\InfobipApi
 
         $message = collect($messages->random());
 
-        $requiredFields = ['callbackData','destinations','from','notifyContentType','notifyUrl','text','validityPeriod'];
+        $requiredFields = ['callbackData','destinations','from','callbackData','notifyUrl','text','validityPeriod'];
         foreach ($requiredFields as $requiredField) {
             if (!$message->has($requiredField) || empty($message->get($requiredField))) {
                 throw new Exception('One item in the messages array has key '. $requiredField .' missing in the payload.');
