@@ -37,21 +37,21 @@ class Infobip implements Contracts\InfobipApi
     {
         $this->validateSendMessagesRequest($request);
 
-        return $this->getClient()->post('/sms/2/text/advanced', $request);
+        return $this->getClient()->post('/sms/2/text/advanced', $request->toArray());
     }
 
     public function numbersLookup(Collection $request): Response
     {
         $this->validateNumbersLookupRequest($request);
 
-        return $this->getClient()->post('/number/1/notify', $request);
+        return $this->getClient()->post('/number/1/notify', $request->toArray());
     }
 
     public function numbersLookupQuery(Collection $request): Response
     {
         $this->validateNumbersLookupRequest($request, true);
 
-        return $this->getClient()->post('/number/1/query', $request);
+        return $this->getClient()->post('/number/1/query', $request->toArray());
     }
 
     private function validateSendMessagesRequest(Collection $request)
