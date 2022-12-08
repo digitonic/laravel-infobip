@@ -17,6 +17,13 @@ INFOBIP_KEY=secret
 
 ```
 
+optionally if you want to tweak the default timeout you can add the following env
+
+```
+INFOBIP_TIMEOUT=30
+```
+
+
 This package supports 2 endpoint so far with a basic request validation.
 
 #### SendMessages

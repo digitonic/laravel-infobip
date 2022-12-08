@@ -16,16 +16,20 @@ class Infobip implements Contracts\InfobipApi
 
     private string $secret;
 
+    private int $timeout;
+
     public function __construct(array $config)
     {
         $this->domain = $config['domain'];
         $this->prefix = $config['prefix'];
         $this->secret = $config['secret'];
+        $this->timeout = $config['timeout'];
     }
 
     public function getClient(): PendingRequest
     {
         return Http::baseUrl($this->domain)
+                   ->timeout($this->timeout)
                    ->withHeaders([
                                      'Authorization' => $this->prefix
                                                         . ' '
